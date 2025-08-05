@@ -1,0 +1,798 @@
+local player = game:GetService("Players").LocalPlayer
+local mouse = player:GetMouse()
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local VirexEngine = Instance.new("ScreenGui")
+VirexEngine.Name = "VirexEngine"
+VirexEngine.Parent = game.CoreGui
+VirexEngine.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = VirexEngine
+MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.236990154, 0, 0.172371641, 0)
+MainFrame.Size = UDim2.new(0, 747, 0, 536)
+
+local UIGradient = Instance.new("UIGradient")
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(104, 104, 104))}
+UIGradient.Parent = MainFrame
+
+local TopFrame = Instance.new("Frame")
+TopFrame.Name = "TopFrame"
+TopFrame.Parent = MainFrame
+TopFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TopFrame.BackgroundTransparency = 1.000
+TopFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TopFrame.BorderSizePixel = 0
+TopFrame.Position = UDim2.new(0.365461856, 0, 0.0111940298, 0)
+TopFrame.Size = UDim2.new(0, 200, 0, 50)
+
+local TextLabel = Instance.new("TextLabel")
+TextLabel.Parent = TopFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.000461730961, 0, 0.0111941528, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.Unknown
+TextLabel.Text = "Virex Cheat"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+local SideFrame = Instance.new("Frame")
+SideFrame.Name = "SideFrame"
+SideFrame.Parent = MainFrame
+SideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SideFrame.BackgroundTransparency = 0.900
+SideFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SideFrame.BorderSizePixel = 0
+SideFrame.Position = UDim2.new(0, 0, 0.13059701, 0)
+SideFrame.Size = UDim2.new(0, 128, 0, 421)
+
+local AimbotButton = Instance.new("ImageButton")
+AimbotButton.Name = "AimbotButton"
+AimbotButton.Parent = SideFrame
+AimbotButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AimbotButton.BackgroundTransparency = 1.000
+AimbotButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AimbotButton.BorderSizePixel = 0
+AimbotButton.Position = UDim2.new(0.109375, 0, 0.0213776715, 0)
+AimbotButton.Size = UDim2.new(0, 100, 0, 100)
+AimbotButton.Image = "rbxassetid://10734977012"
+
+local TextLabel_2 = Instance.new("TextLabel")
+TextLabel_2.Parent = AimbotButton
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(-0.00999999978, 0, 1, 0)
+TextLabel_2.Size = UDim2.new(0, 102, 0, 27)
+TextLabel_2.Font = Enum.Font.Unknown
+TextLabel_2.Text = "Aimbot"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+local PlayerButton = Instance.new("ImageButton")
+PlayerButton.Name = "PlayerButton"
+PlayerButton.Parent = SideFrame
+PlayerButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerButton.BackgroundTransparency = 1.000
+PlayerButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayerButton.BorderSizePixel = 0
+PlayerButton.Position = UDim2.new(0.109375, 0, 0.3800475, 0)
+PlayerButton.Size = UDim2.new(0, 100, 0, 100)
+PlayerButton.Image = "rbxassetid://10734920149"
+
+local TextLabel_3 = Instance.new("TextLabel")
+TextLabel_3.Parent = PlayerButton
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(-0.00999999978, 0, 1, 0)
+TextLabel_3.Size = UDim2.new(0, 102, 0, 27)
+TextLabel_3.Font = Enum.Font.Unknown
+TextLabel_3.Text = "Player"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+local SettingsButton = Instance.new("ImageButton")
+SettingsButton.Name = "SettingsButton"
+SettingsButton.Parent = SideFrame
+SettingsButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingsButton.BackgroundTransparency = 1.000
+SettingsButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SettingsButton.BorderSizePixel = 0
+SettingsButton.Position = UDim2.new(0.09375, 0, 0.695962012, 0)
+SettingsButton.Size = UDim2.new(0, 100, 0, 100)
+SettingsButton.Image = "rbxassetid://10734910927"
+
+local TextLabel_4 = Instance.new("TextLabel")
+TextLabel_4.Parent = SettingsButton
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(-0.00999999978, 0, 1, 0)
+TextLabel_4.Size = UDim2.new(0, 102, 0, 27)
+TextLabel_4.Font = Enum.Font.Unknown
+TextLabel_4.Text = "Settings"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+local AllFrames = Instance.new("Folder")
+AllFrames.Name = "AllFrames"
+AllFrames.Parent = MainFrame
+
+local AimbotFrame = Instance.new("Frame")
+AimbotFrame.Name = "AimbotFrame"
+AimbotFrame.Parent = AllFrames
+AimbotFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AimbotFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AimbotFrame.BorderSizePixel = 0
+AimbotFrame.Position = UDim2.new(0.246318609, 0, 0.13059704, 0)
+AimbotFrame.Size = UDim2.new(0, 466, 0, 419)
+AimbotFrame.Visible = false
+
+local UIGradient_2 = Instance.new("UIGradient")
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(104, 104, 104))}
+UIGradient_2.Parent = AimbotFrame
+
+local TextLabel_5 = Instance.new("TextLabel")
+TextLabel_5.Parent = AimbotFrame
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.Position = UDim2.new(0.285407722, 0, 0, 0)
+TextLabel_5.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_5.Font = Enum.Font.Unknown
+TextLabel_5.Text = "Aimbot"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+
+local AimbotButton_2 = Instance.new("ImageButton")
+AimbotButton_2.Name = "AimbotButton"
+AimbotButton_2.Parent = AimbotFrame
+AimbotButton_2.AnchorPoint = Vector2.new(0.5, 0.5)
+AimbotButton_2.BackgroundTransparency = 1.000
+AimbotButton_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+AimbotButton_2.Position = UDim2.new(0.126609445, 0, 0.215990454, 0)
+AimbotButton_2.Size = UDim2.new(0, 60, 0, 36)
+AimbotButton_2.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+AimbotButton_2.ImageRectOffset = Vector2.new(287, 0)
+AimbotButton_2.ImageRectSize = Vector2.new(36, 36)
+AimbotButton_2.ImageTransparency = 0.300
+AimbotButton_2.ScaleType = Enum.ScaleType.Slice
+AimbotButton_2.SliceCenter = Rect.new(18, 18, 18, 18)
+
+local Knob = Instance.new("ImageLabel")
+Knob.Name = "Knob"
+Knob.Parent = AimbotButton_2
+Knob.AnchorPoint = Vector2.new(0, 0.5)
+Knob.BackgroundTransparency = 1.000
+Knob.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Knob.Position = UDim2.new(1, -39, 0.5, 0)
+Knob.Size = UDim2.new(0, 42, 0, 42)
+Knob.ZIndex = 2
+Knob.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+Knob.ImageRectOffset = Vector2.new(0, 208)
+Knob.ImageRectSize = Vector2.new(42, 42)
+
+local Fill = Instance.new("ImageLabel")
+Fill.Name = "Fill"
+Fill.Parent = AimbotButton_2
+Fill.BackgroundTransparency = 1.000
+Fill.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Fill.Size = UDim2.new(1, 0, 1, 0)
+Fill.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+Fill.ImageColor3 = Color3.fromRGB(0, 176, 111)
+Fill.ImageRectOffset = Vector2.new(324, 0)
+Fill.ImageRectSize = Vector2.new(36, 36)
+Fill.ScaleType = Enum.ScaleType.Slice
+Fill.SliceCenter = Rect.new(18, 18, 18, 18)
+
+local WallhackLabel = Instance.new("TextLabel")
+WallhackLabel.Name = "WallhackLabel"
+WallhackLabel.Parent = AimbotFrame
+WallhackLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WallhackLabel.BackgroundTransparency = 1.000
+WallhackLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+WallhackLabel.BorderSizePixel = 0
+WallhackLabel.Position = UDim2.new(0.214592278, 0, 0.294749409, 0)
+WallhackLabel.Size = UDim2.new(0, 95, 0, 36)
+WallhackLabel.Font = Enum.Font.Unknown
+WallhackLabel.Text = "Wallhack"
+WallhackLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+WallhackLabel.TextScaled = true
+WallhackLabel.TextSize = 14.000
+WallhackLabel.TextWrapped = true
+
+local AimbotLabel = Instance.new("TextLabel")
+AimbotLabel.Name = "AimbotLabel"
+AimbotLabel.Parent = AimbotFrame
+AimbotLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AimbotLabel.BackgroundTransparency = 1.000
+AimbotLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AimbotLabel.BorderSizePixel = 0
+AimbotLabel.Position = UDim2.new(0.214592278, 0, 0.173031032, 0)
+AimbotLabel.Size = UDim2.new(0, 95, 0, 36)
+AimbotLabel.Font = Enum.Font.Unknown
+AimbotLabel.Text = "Aimbot"
+AimbotLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+AimbotLabel.TextScaled = true
+AimbotLabel.TextSize = 14.000
+AimbotLabel.TextWrapped = true
+
+local WallhackButton = Instance.new("ImageButton")
+WallhackButton.Name = "WallhackButton"
+WallhackButton.Parent = AimbotFrame
+WallhackButton.AnchorPoint = Vector2.new(0.5, 0.5)
+WallhackButton.BackgroundTransparency = 1.000
+WallhackButton.BorderColor3 = Color3.fromRGB(27, 42, 53)
+WallhackButton.Position = UDim2.new(0.126609445, 0, 0.337708831, 0)
+WallhackButton.Size = UDim2.new(0, 60, 0, 36)
+WallhackButton.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+WallhackButton.ImageRectOffset = Vector2.new(287, 0)
+WallhackButton.ImageRectSize = Vector2.new(36, 36)
+WallhackButton.ImageTransparency = 0.300
+WallhackButton.ScaleType = Enum.ScaleType.Slice
+WallhackButton.SliceCenter = Rect.new(18, 18, 18, 18)
+
+local Knob_2 = Instance.new("ImageLabel")
+Knob_2.Name = "Knob"
+Knob_2.Parent = WallhackButton
+Knob_2.AnchorPoint = Vector2.new(0, 0.5)
+Knob_2.BackgroundTransparency = 1.000
+Knob_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Knob_2.Position = UDim2.new(1, -39, 0.5, 0)
+Knob_2.Size = UDim2.new(0, 42, 0, 42)
+Knob_2.ZIndex = 2
+Knob_2.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+Knob_2.ImageRectOffset = Vector2.new(0, 208)
+Knob_2.ImageRectSize = Vector2.new(42, 42)
+
+local Fill_2 = Instance.new("ImageLabel")
+Fill_2.Name = "Fill"
+Fill_2.Parent = WallhackButton
+Fill_2.BackgroundTransparency = 1.000
+Fill_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Fill_2.Size = UDim2.new(1, 0, 1, 0)
+Fill_2.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+Fill_2.ImageColor3 = Color3.fromRGB(0, 176, 111)
+Fill_2.ImageRectOffset = Vector2.new(324, 0)
+Fill_2.ImageRectSize = Vector2.new(36, 36)
+Fill_2.ScaleType = Enum.ScaleType.Slice
+Fill_2.SliceCenter = Rect.new(18, 18, 18, 18)
+
+local PlayerFrame = Instance.new("Frame")
+PlayerFrame.Name = "PlayerFrame"
+PlayerFrame.Parent = AllFrames
+PlayerFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayerFrame.BorderSizePixel = 0
+PlayerFrame.Position = UDim2.new(0.246318609, 0, 0.13059704, 0)
+PlayerFrame.Size = UDim2.new(0, 466, 0, 419)
+PlayerFrame.Visible = false
+
+local UIGradient_3 = Instance.new("UIGradient")
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(104, 104, 104))}
+UIGradient_3.Parent = PlayerFrame
+
+local TextLabel_6 = Instance.new("TextLabel")
+TextLabel_6.Parent = PlayerFrame
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_6.BorderSizePixel = 0
+TextLabel_6.Position = UDim2.new(0.285407722, 0, 0, 0)
+TextLabel_6.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_6.Font = Enum.Font.Unknown
+TextLabel_6.Text = "Player"
+TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.TextScaled = true
+TextLabel_6.TextSize = 14.000
+TextLabel_6.TextWrapped = true
+
+local AimbotButton_3 = Instance.new("ImageButton")
+AimbotButton_3.Name = "AimbotButton"
+AimbotButton_3.Parent = PlayerFrame
+AimbotButton_3.AnchorPoint = Vector2.new(0.5, 0.5)
+AimbotButton_3.BackgroundTransparency = 1.000
+AimbotButton_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+AimbotButton_3.Position = UDim2.new(0.126609445, 0, 0.215990454, 0)
+AimbotButton_3.Size = UDim2.new(0, 60, 0, 36)
+AimbotButton_3.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+AimbotButton_3.ImageRectOffset = Vector2.new(287, 0)
+AimbotButton_3.ImageRectSize = Vector2.new(36, 36)
+AimbotButton_3.ImageTransparency = 0.300
+AimbotButton_3.ScaleType = Enum.ScaleType.Slice
+AimbotButton_3.SliceCenter = Rect.new(18, 18, 18, 18)
+
+local Knob_3 = Instance.new("ImageLabel")
+Knob_3.Name = "Knob"
+Knob_3.Parent = AimbotButton_3
+Knob_3.AnchorPoint = Vector2.new(0, 0.5)
+Knob_3.BackgroundTransparency = 1.000
+Knob_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Knob_3.Position = UDim2.new(1, -39, 0.5, 0)
+Knob_3.Size = UDim2.new(0, 42, 0, 42)
+Knob_3.ZIndex = 2
+Knob_3.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+Knob_3.ImageRectOffset = Vector2.new(0, 208)
+Knob_3.ImageRectSize = Vector2.new(42, 42)
+
+local Fill_3 = Instance.new("ImageLabel")
+Fill_3.Name = "Fill"
+Fill_3.Parent = AimbotButton_3
+Fill_3.BackgroundTransparency = 1.000
+Fill_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Fill_3.Size = UDim2.new(1, 0, 1, 0)
+Fill_3.Image = "rbxasset://textures/ui/ImageSet/InGameMenu/img_set_1x_1.png"
+Fill_3.ImageColor3 = Color3.fromRGB(0, 176, 111)
+Fill_3.ImageRectOffset = Vector2.new(324, 0)
+Fill_3.ImageRectSize = Vector2.new(36, 36)
+Fill_3.ScaleType = Enum.ScaleType.Slice
+Fill_3.SliceCenter = Rect.new(18, 18, 18, 18)
+
+local AimbotLabel_2 = Instance.new("TextLabel")
+AimbotLabel_2.Name = "AimbotLabel"
+AimbotLabel_2.Parent = PlayerFrame
+AimbotLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AimbotLabel_2.BackgroundTransparency = 1.000
+AimbotLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AimbotLabel_2.BorderSizePixel = 0
+AimbotLabel_2.Position = UDim2.new(0.214592278, 0, 0.173031032, 0)
+AimbotLabel_2.Size = UDim2.new(0, 95, 0, 36)
+AimbotLabel_2.Font = Enum.Font.Unknown
+AimbotLabel_2.Text = "Show all Players"
+AimbotLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+AimbotLabel_2.TextScaled = true
+AimbotLabel_2.TextSize = 14.000
+AimbotLabel_2.TextWrapped = true
+
+local SettingsFrame = Instance.new("Frame")
+SettingsFrame.Name = "SettingsFrame"
+SettingsFrame.Parent = AllFrames
+SettingsFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SettingsFrame.BorderSizePixel = 0
+SettingsFrame.Position = UDim2.new(0.246318609, 0, 0.13059704, 0)
+SettingsFrame.Size = UDim2.new(0, 466, 0, 419)
+SettingsFrame.Visible = false
+
+local UIGradient_4 = Instance.new("UIGradient")
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(104, 104, 104))}
+UIGradient_4.Parent = SettingsFrame
+
+local TextLabel_7 = Instance.new("TextLabel")
+TextLabel_7.Parent = SettingsFrame
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.BackgroundTransparency = 1.000
+TextLabel_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_7.BorderSizePixel = 0
+TextLabel_7.Position = UDim2.new(0.285407722, 0, 0, 0)
+TextLabel_7.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_7.Font = Enum.Font.Unknown
+TextLabel_7.Text = "Settings"
+TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.TextScaled = true
+TextLabel_7.TextSize = 14.000
+TextLabel_7.TextWrapped = true
+
+local InfoLabel = Instance.new("TextLabel")
+InfoLabel.Name = "InfoLabel"
+InfoLabel.Parent = SettingsFrame
+InfoLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InfoLabel.BackgroundTransparency = 1.000
+InfoLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfoLabel.BorderSizePixel = 0
+InfoLabel.Position = UDim2.new(0.274678111, 0, 0.282816231, 0)
+InfoLabel.Size = UDim2.new(0, 210, 0, 112)
+InfoLabel.Font = Enum.Font.Unknown
+InfoLabel.Text = "SOON !"
+InfoLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+InfoLabel.TextScaled = true
+InfoLabel.TextSize = 14.000
+InfoLabel.TextWrapped = true
+
+local TextLabel_8 = Instance.new("TextLabel")
+TextLabel_8.Parent = MainFrame
+TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.BackgroundTransparency = 1.000
+TextLabel_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_8.BorderSizePixel = 0
+TextLabel_8.Position = UDim2.new(0.911646605, 0, 0.945895493, 0)
+TextLabel_8.Size = UDim2.new(0, 66, 0, 21)
+TextLabel_8.Font = Enum.Font.Unknown
+TextLabel_8.Text = "v.1.0"
+TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.TextScaled = true
+TextLabel_8.TextSize = 14.000
+TextLabel_8.TextWrapped = true
+
+local currentFrame = nil
+local wallhackEnabled = false
+local aimbotEnabled = false
+local namesEnabled = false
+local highlightInstances = {}
+local nameTags = {}
+local target = nil
+local connection = nil
+local dragging = false
+local dragInput, dragStart, startPos
+
+local function randomString()
+    local str = ""
+    for i = 1, math.random(5,10) do
+        str = str .. string.char(math.random(97,122))
+    end
+    return str
+end
+
+local function toggleUI()
+    MainFrame.Visible = not MainFrame.Visible
+end
+
+local function toggleFrame(frame)
+    if currentFrame == frame then
+        frame.Visible = not frame.Visible
+    else
+        if currentFrame then
+            currentFrame.Visible = false
+        end
+        frame.Visible = true
+        currentFrame = frame
+    end
+end
+
+local function applyHighlight(instance)
+    if instance:IsA("Model") and instance:FindFirstChildOfClass("Humanoid") then
+        local highlight = Instance.new("Highlight")
+        highlight.Name = randomString()
+        highlight.FillColor = Color3.fromRGB(math.random(200,255), math.random(0,50), math.random(0,50))
+        highlight.OutlineColor = Color3.fromRGB(math.random(200,255), math.random(0,50), math.random(0,50))
+        highlight.Parent = instance
+        table.insert(highlightInstances, highlight)
+    end
+end
+
+local function createNameTag(character)
+    if not character:FindFirstChild("Head") then return end
+    
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = randomString()
+    billboard.Adornee = character.Head
+    billboard.Size = UDim2.new(0, 100, 0, 40)
+    billboard.StudsOffset = Vector3.new(0, 3, 0)
+    billboard.AlwaysOnTop = true
+    
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Name = randomString()
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = character.Name
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.TextStrokeTransparency = 0
+    textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+    textLabel.TextSize = 18
+    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.Parent = billboard
+    
+    billboard.Parent = character.Head
+    nameTags[character] = billboard
+end
+
+local function removeNameTag(character)
+    if nameTags[character] then
+        nameTags[character]:Destroy()
+        nameTags[character] = nil
+    end
+end
+
+local function toggleNames()
+    namesEnabled = not namesEnabled
+    
+    if namesEnabled then
+        for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+            if player.Character then
+                createNameTag(player.Character)
+            end
+            player.CharacterAdded:Connect(function(character)
+                createNameTag(character)
+            end)
+        end
+    else
+        for character, tag in pairs(nameTags) do
+            if tag then
+                tag:Destroy()
+            end
+        end
+        nameTags = {}
+    end
+end
+
+local function cleanTable(t)
+    local new = {}
+    for i,v in pairs(t) do
+        if v and v.Parent then
+            new[i] = v
+        end
+    end
+    return new
+end
+
+local function toggleWallhack()
+    wallhackEnabled = not wallhackEnabled
+    
+    if wallhackEnabled then
+        for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+            if player.Character then
+                applyHighlight(player.Character)
+            end
+        end
+        
+        for _, npc in ipairs(workspace:GetDescendants()) do
+            if npc:IsA("Model") and npc:FindFirstChildOfClass("Humanoid") and not game:GetService("Players"):GetPlayerFromCharacter(npc) then
+                applyHighlight(npc)
+            end
+        end
+    else
+        highlightInstances = cleanTable(highlightInstances)
+        for _, highlight in pairs(highlightInstances) do
+            if highlight then
+                highlight:Destroy()
+            end
+        end
+        highlightInstances = {}
+    end
+end
+
+local function findBestTarget()
+    local bestTarget = nil
+    local bestScore = -math.huge
+    local localChar = player.Character
+    if not localChar then return nil end
+    local localRoot = localChar:FindFirstChild("HumanoidRootPart")
+    if not localRoot then return nil end
+    local camera = workspace.CurrentCamera
+    if not camera then return nil end
+
+    for _, otherPlayer in ipairs(game:GetService("Players"):GetPlayers()) do
+        if otherPlayer ~= player and otherPlayer.Character then
+            local char = otherPlayer.Character
+            local humanoid = char:FindFirstChildOfClass("Humanoid")
+            local head = char:FindFirstChild("Head")
+            if humanoid and humanoid.Health > 0 and head then
+                local screenPoint = camera:WorldToViewportPoint(head.Position)
+                if screenPoint.Z > 0 then
+                    local distance = (localRoot.Position - head.Position).Magnitude
+                    local fov = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(screenPoint.X, screenPoint.Y))
+                    local fovValue = fov.Magnitude
+                    local score = (1000 / distance) * (1 / (fovValue + 0.1))
+                    
+                    if score > bestScore then
+                        bestScore = score
+                        bestTarget = head
+                    end
+                end
+            end
+        end
+    end
+    return bestTarget
+end
+
+local function toggleAimbot()
+    aimbotEnabled = not aimbotEnabled
+    
+    if aimbotEnabled then
+        connection = RunService.Heartbeat:Connect(function()
+            if player.Character then
+                local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+                local rootPart = player.Character:FindFirstChild("HumanoidRootPart")
+                if humanoid and humanoid.Health > 0 and rootPart then
+                    target = findBestTarget()
+                    if target then
+                        local camera = workspace.CurrentCamera
+                        if camera then
+                            local smoothness = math.random(8,12)
+                            local currentCF = camera.CFrame
+                            local targetCF = CFrame.new(camera.CFrame.Position, target.Position + Vector3.new(math.random(-0.1,0.1), math.random(-0.1,0.1), math.random(-0.1,0.1)))
+                            camera.CFrame = currentCF:Lerp(targetCF, smoothness * RunService.Heartbeat:Wait())
+                        end
+                    end
+                end
+            end
+        end)
+    else
+        if connection then
+            connection:Disconnect()
+            connection = nil
+        end
+        target = nil
+    end
+end
+
+local function updateInput(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = MainFrame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end
+
+local function handleMovement(input)
+    if not dragging then return end
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        local delta = input.Position - dragStart
+        MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end
+
+UserInputService.InputBegan:Connect(function(input, processed)
+    if not processed and input.KeyCode == Enum.KeyCode.P then
+        toggleUI()
+    end
+end)
+
+MainFrame.InputBegan:Connect(updateInput)
+UserInputService.InputChanged:Connect(handleMovement)
+
+PlayerButton.MouseButton1Click:Connect(function()
+    toggleFrame(PlayerFrame)
+end)
+
+SettingsButton.MouseButton1Click:Connect(function()
+    toggleFrame(SettingsFrame)
+end)
+
+AimbotButton.MouseButton1Click:Connect(function()
+    toggleFrame(AimbotFrame)
+end)
+
+WallhackButton.MouseButton1Click:Connect(function()
+    toggleWallhack()
+end)
+
+AimbotButton_2.MouseButton1Click:Connect(function()
+    toggleAimbot()
+end)
+
+AimbotButton_3.MouseButton1Click:Connect(function()
+    toggleNames()
+end)
+
+game:GetService("Players").PlayerAdded:Connect(function(newPlayer)
+    newPlayer.CharacterAdded:Connect(function(character)
+        if wallhackEnabled then
+            applyHighlight(character)
+        end
+        if namesEnabled then
+            createNameTag(character)
+        end
+    end)
+end)
+
+workspace.DescendantAdded:Connect(function(descendant)
+    if wallhackEnabled and descendant:IsA("Model") and descendant:FindFirstChildOfClass("Humanoid") and not game:GetService("Players"):GetPlayerFromCharacter(descendant) then
+        applyHighlight(descendant)
+    end
+end)
+
+PlayerFrame.Visible = false
+SettingsFrame.Visible = false
+AimbotFrame.Visible = false
+
+local function antiDetection()
+    local randomDelay = math.random(30,60)
+    while true do
+        wait(randomDelay)
+        if aimbotEnabled then
+            aimbotEnabled = false
+            wait(0.1)
+            aimbotEnabled = true
+        end
+        randomDelay = math.random(30,60)
+    end
+end
+
+coroutine.wrap(antiDetection)()
+
+local function TMZSSS_fake_script()
+    local ts,ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+    local on1,on2,off1,off2 = ts:Create(AimbotButton_2.Fill,ti,{ImageTransparency=0}), ts:Create(AimbotButton_2.Knob,ti,{Position=UDim2.new(1,-39,.5,0)}),ts:Create(AimbotButton_2.Fill,ti,{ImageTransparency=1}), ts:Create(AimbotButton_2.Knob,ti,{Position=UDim2.new(0,-3,.5,0)})
+    local state = AimbotButton_2:GetAttribute("state")
+    if state then
+        on1:Play()
+        on2:Play()
+    else
+        off1:Play()
+        off2:Play()
+    end
+    AimbotButton_2.MouseButton1Click:Connect(function()
+        state = AimbotButton_2:GetAttribute("state")
+        if state then
+            AimbotButton_2:SetAttribute("state",false)
+            off1:Play()
+            off2:Play()
+        else
+            AimbotButton_2:SetAttribute("state",true)
+            on1:Play()
+            on2:Play()
+        end
+    end)
+end
+coroutine.wrap(TMZSSS_fake_script)()
+
+local function STWMI_fake_script()
+    local ts,ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+    local on1,on2,off1,off2 = ts:Create(WallhackButton.Fill,ti,{ImageTransparency=0}), ts:Create(WallhackButton.Knob,ti,{Position=UDim2.new(1,-39,.5,0)}),ts:Create(WallhackButton.Fill,ti,{ImageTransparency=1}), ts:Create(WallhackButton.Knob,ti,{Position=UDim2.new(0,-3,.5,0)})
+    local state = WallhackButton:GetAttribute("state")
+    if state then
+        on1:Play()
+        on2:Play()
+    else
+        off1:Play()
+        off2:Play()
+    end
+    WallhackButton.MouseButton1Click:Connect(function()
+        state = WallhackButton:GetAttribute("state")
+        if state then
+            WallhackButton:SetAttribute("state",false)
+            off1:Play()
+            off2:Play()
+        else
+            WallhackButton:SetAttribute("state",true)
+            on1:Play()
+            on2:Play()
+        end
+    end)
+end
+coroutine.wrap(STWMI_fake_script)()
+
+local function HGTFKX_fake_script()
+    local ts,ti = game.TweenService,TweenInfo.new(.5,Enum.EasingStyle.Quint)
+    local on1,on2,off1,off2 = ts:Create(AimbotButton_3.Fill,ti,{ImageTransparency=0}), ts:Create(AimbotButton_3.Knob,ti,{Position=UDim2.new(1,-39,.5,0)}),ts:Create(AimbotButton_3.Fill,ti,{ImageTransparency=1}), ts:Create(AimbotButton_3.Knob,ti,{Position=UDim2.new(0,-3,.5,0)})
+    local state = AimbotButton_3:GetAttribute("state")
+    if state then
+        on1:Play()
+        on2:Play()
+    else
+        off1:Play()
+        off2:Play()
+    end
+    AimbotButton_3.MouseButton1Click:Connect(function()
+        state = AimbotButton_3:GetAttribute("state")
+        if state then
+            AimbotButton_3:SetAttribute("state",false)
+            off1:Play()
+            off2:Play()
+        else
+            AimbotButton_3:SetAttribute("state",true)
+            on1:Play()
+            on2:Play()
+        end
+    end)
+end
+coroutine.wrap(HGTFKX_fake_script)()
